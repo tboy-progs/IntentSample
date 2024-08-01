@@ -1,5 +1,6 @@
 package com.example.intentsample
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -43,8 +44,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     private inner class ListItemClickListener : AdapterView.OnItemClickListener {
-        override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-            TODO("Not yet implemented")
+        override fun onItemClick(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
+            val item = parent.getItemAtPosition(position) as MutableMap<String, String>
+            val menuName = item["name"]
+            val menuPrice = item["price"]
+            
+            val intentToMenuThanks = Intent(this@MainActivity, MenuThanksActivity::class.java)
+            intentToMenuThanks.putExtra("menuName", menuName)
+            intentToMenuThanks.putExtra("menuPrice", menuPrice)
+
+            startActivity(intentToMenuThanks)
         }
     }
 }
