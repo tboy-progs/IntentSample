@@ -29,6 +29,6 @@ class MenuThanksActivity : AppCompatActivity() {
     }
 
     fun onBackButtonClick(view: View) {
-
+        finish()
     }
 }
