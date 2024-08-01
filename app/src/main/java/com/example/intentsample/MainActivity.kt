@@ -1,6 +1,8 @@
 package com.example.intentsample
 
 import android.os.Bundle
+import android.view.View
+import android.widget.AdapterView
 import android.widget.ListView
 import android.widget.SimpleAdapter
 import androidx.activity.enableEdgeToEdge
@@ -38,5 +40,11 @@ class MainActivity : AppCompatActivity() {
 
         val lvMenu = findViewById<ListView>(R.id.lvMenu)
         lvMenu.adapter = adapter
+    }
+
+    private inner class ListItemClickListener : AdapterView.OnItemClickListener {
+        override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+            TODO("Not yet implemented")
+        }
     }
 }
