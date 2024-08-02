@@ -41,6 +41,7 @@ class MainActivity : AppCompatActivity() {
 
         val lvMenu = findViewById<ListView>(R.id.lvMenu)
         lvMenu.adapter = adapter
+        lvMenu.onItemClickListener = ListItemClickListener()
     }
 
     private inner class ListItemClickListener : AdapterView.OnItemClickListener {
@@ -48,7 +49,7 @@ class MainActivity : AppCompatActivity() {
             val item = parent.getItemAtPosition(position) as MutableMap<String, String>
             val menuName = item["name"]
             val menuPrice = item["price"]
-            
+
             val intentToMenuThanks = Intent(this@MainActivity, MenuThanksActivity::class.java)
             intentToMenuThanks.putExtra("menuName", menuName)
             intentToMenuThanks.putExtra("menuPrice", menuPrice)
